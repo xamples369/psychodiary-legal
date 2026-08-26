@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychodiary — Zásady ochrany súkromia / Privacy Policy</title>
+<!--
+  Play Console requires a publicly reachable privacy-policy URL for every
+  app, including ones that collect nothing. Host this single file anywhere
+  static (Cloudflare Pages / Netlify drop / GitHub Pages of a small PUBLIC
+  repo — this repo is private, and Pages on a private repo needs a paid
+  plan) and paste the resulting URL into:
+    Play Console -> App content -> Privacy policy
+    Play Console -> Store listing -> Privacy policy
+  Keep the "Posledná aktualizácia" line in sync with real changes.
+
+  Before publishing: replace KONTAKT_EMAIL below with the address you also
+  use as the Play listing contact e-mail.
+-->
+<style>
+  :root { color-scheme: light dark; --bg:#f4ede0; --fg:#20211f; --mut:#5c5f5a; --acc:#2e6f6a; --line:#ddd3c2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#16181a; --fg:#e8e4dc; --mut:#a3a8a2; --acc:#7fc3bc; --line:#2c3033; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
+  h1 { font-size:1.7rem; line-height:1.25; margin:0 0 .35rem; }
+  h2 { font-size:1.2rem; margin:2.2rem 0 .6rem; color:var(--acc); }
+  h3 { font-size:1rem; margin:1.4rem 0 .4rem; }
+  p, li { color:var(--fg); }
+  .meta { color:var(--mut); font-size:.9rem; margin:0 0 1.5rem; }
+  ul { padding-left:1.15rem; }
+  li { margin:.3rem 0; }
+  hr { border:0; border-top:1px solid var(--line); margin:3rem 0; }
+  .lang { font-size:.85rem; color:var(--mut); letter-spacing:.08em; text-transform:uppercase; }
+  strong { font-weight:600; }
+  a { color:var(--acc); }
+</style>
+</head>
+<body>
+<main>
+
+<p class="lang">Slovensky</p>
+<h1>Psychodiary — zásady ochrany súkromia</h1>
+<p class="meta">Posledná aktualizácia: 25. augusta 2026 · Aplikácia: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
+
+<h2>Zhrnutie</h2>
+<p><strong>Psychodiary nezbiera o tebe žiadne dáta.</strong> Neexistuje žiadny
+server autora, do ktorého by čokoľvek tieklo. Aplikácia neobsahuje analytiku,
+reklamy, sledovanie, ani hlásenie pádov. Všetko, čo do nej napíšeš, zostáva na
+tvojom zariadení, kým sa ty sám nerozhodneš inak.</p>
+
+<h2>Aké údaje aplikácia spracúva a kde sú uložené</h2>
+<p>Do aplikácie zadávaš obsah, ktorý môže byť veľmi osobný — záznamy denníka,
+nálada, spánok, tréning, poznámky, postoje a varovné signály (Kompas) a
+namerané hodnoty HRV. Tieto údaje sa ukladajú <strong>lokálne v súkromnom
+úložisku aplikácie</strong> na tvojom zariadení, vo formáte JSON.</p>
+<ul>
+  <li>K tomuto úložisku nemá prístup iná aplikácia — chráni ho sandbox
+      operačného systému Android.</li>
+  <li>Súbory <strong>nie sú šifrované „at rest"</strong>. Kto má odomknuté
+      zariadenie s rootom alebo prístup k zálohe zariadenia, teoreticky sa k
+      nim dostane. Voliteľný PIN (hashovaný Argon2id) a biometrické
+      odomykanie chránia prístup <em>cez aplikáciu</em>, nie samotné súbory.</li>
+  <li>Zálohovanie systémom Android (Android Auto Backup a prenos medzi
+      zariadeniami) je pre túto aplikáciu <strong>vypnuté</strong>, aby sa
+      nešifrovaný denník nikdy nedostal do cloudu bez tvojho vedomia.</li>
+  <li>Autor aplikácie k tvojim záznamom nemá prístup — žiadny, za žiadnych
+      okolností.</li>
+</ul>
+
+<h2>Kedy dáta opúšťajú zariadenie</h2>
+<p>Iba na tvoj vlastný pokyn, a to dvoma spôsobmi:</p>
+
+<h3>1. Manuálny export</h3>
+<p>V Nastaveniach môžeš vyexportovať archív ako obyčajný <code>.json</code>
+alebo ako šifrovaný <code>.psyenc</code> (AES-GCM-256, kľúč odvodený z tvojej
+frázy cez Argon2id). Súbor odovzdá systémový „share" dialóg — kam poputuje
+(e-mail, disk, chat) si vyberáš ty a odvtedy podlieha podmienkam danej služby.
+Obyčajný <code>.json</code> export nie je šifrovaný; zaobchádzaj s ním
+opatrne.</p>
+
+<h3>2. Voliteľné automatické zálohy do Google Drive</h3>
+<p>Ak si túto funkciu zapneš:</p>
+<ul>
+  <li>Prihlásiš sa vlastným Google účtom. Aplikácia žiada výhradne rozsah
+      <code>drive.appdata</code> — skrytý priečinok, ktorý patrí aplikácii.
+      Aplikácia <strong>nevidí</strong> ostatné súbory na tvojom Google Drive.</li>
+  <li>Záloha sa šifruje <strong>na zariadení</strong> ešte pred odoslaním,
+      kľúčom odvodeným z tvojej zálohovacej frázy. Google (ani ktokoľvek iný)
+      vidí len nečitateľný blob.</li>
+  <li>Frázu nepozná nikto okrem teba a nedá sa obnoviť. Ak ju stratíš,
+      záloha je nenávratne nečitateľná — je to zámer, nie chyba.</li>
+  <li>Záloha leží v <em>tvojom</em> Google účte, nie v účte autora.
+      Spracúvanie na strane Googlu sa riadi
+      <a href="https://policies.google.com/privacy">zásadami ochrany súkromia
+      Google</a>.</li>
+</ul>
+<p>Aplikácia okrem toho zisťuje dostupnosť pripojenia (aby ti pri zálohovaní
+povedala, že si offline) a vie otvoriť externý odkaz v prehliadači. Nič iné
+neposiela nikam.</p>
+
+<h2>Žiadne reklamy, žiadne sledovanie, žiadne účty u autora</h2>
+<ul>
+  <li>Žiadne reklamné SDK, žiadne analytické SDK, žiadne crash reporting SDK.</li>
+  <li>Žiadne reklamné identifikátory, žiadne profilovanie, žiadne notifikácie.</li>
+  <li>Žiadna registrácia — aplikácia nemá používateľské účty u autora.</li>
+  <li>Žiadne zdieľanie údajov s tretími stranami. Jediná tretia strana v
+      celom systéme je Google, a to len ak si sám zapneš zálohy do Drive.</li>
+  <li>Aplikácia dnes neobsahuje platby. Ak niekedy pribudnú, pôjdu cez
+      Google Play Billing a tieto zásady sa aktualizujú.</li>
+</ul>
+
+<h2>Ako údaje zmažeš</h2>
+<ul>
+  <li><strong>Lokálne dáta:</strong> Nastavenia → zmazanie dát, alebo
+      odinštalovanie aplikácie. Odinštalovaním zmizne celé súkromné úložisko.</li>
+  <li><strong>Zálohu v Drive:</strong> pri zmazaní dát v aplikácii môžeš
+      nechať zmazať aj súbor zálohy vo svojom Drive. Alternatívne odpojíš
+      aplikácii prístup v
+      <a href="https://myaccount.google.com/permissions">nastaveniach svojho
+      Google účtu</a>.</li>
+  <li><strong>Exporty:</strong> súbory, ktoré si sám niekam poslal, musíš
+      zmazať tam, kam si ich poslal — autor o nich nevie.</li>
+</ul>
+
+<h2>Deti</h2>
+<p>Aplikácia nie je určená deťom a nie je na ne cielená.</p>
+
+<h2>Tvoje práva (GDPR)</h2>
+<p>Autor aplikácie nespracúva tvoje osobné údaje — nemá ich a nemá k nim
+prístup, takže nie je ich prevádzkovateľom v zmysle GDPR. Údaje v aplikácii sú
+pod tvojou výhradnou kontrolou; prístup k nim, ich prenos aj vymazanie
+uskutočníš priamo v aplikácii (export, resp. zmazanie dát). Pri zálohách do
+Drive vystupuje ako spracovateľ Google, voči ktorému si svoje práva uplatňuješ
+cez svoj Google účet.</p>
+
+<h2>Upozornenie</h2>
+<p>Psychodiary je nástroj na osobnú reflexiu, <strong>nie zdravotnícka
+pomôcka</strong>. Neslúži na diagnostiku, liečbu ani prevenciu čohokoľvek a
+nenahrádza odbornú pomoc. V krízovej situácii vyhľadaj lekára alebo zavolaj
+tiesňovú linku.</p>
+
+<h2>Zmeny týchto zásad</h2>
+<p>Ak sa zásady zmenia, aktualizuje sa dátum hore a nová verzia sa zverejní na
+tejto adrese ešte pred vydaním verzie aplikácie, ktorej sa zmena týka.</p>
+
+<h2>Kontakt</h2>
+<p>lubosmisovic@gmail.com</p>
+
+<hr>
+
+<p class="lang">English</p>
+<h1>Psychodiary — Privacy Policy</h1>
+<p class="meta">Last updated: 25 August 2026 · App: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
+
+<h2>Summary</h2>
+<p><strong>Psychodiary collects no data about you.</strong> There is no
+developer-operated server for anything to flow to. The app contains no
+analytics, no ads, no tracking and no crash reporting. Everything you write
+stays on your device unless you yourself decide otherwise.</p>
+
+<h2>What the app processes, and where it is stored</h2>
+<p>You enter content that can be deeply personal — journal entries, mood,
+sleep, training, notes, attitudes and warning signals (Compass), and HRV
+readings. This is stored <strong>locally, in the app's private storage</strong>
+on your device, as JSON files.</p>
+<ul>
+  <li>No other app can reach that storage — the Android sandbox protects it.</li>
+  <li>The files are <strong>not encrypted at rest</strong>. Someone with a
+      rooted, unlocked device or access to a device backup could in principle
+      read them. The optional PIN (hashed with Argon2id) and biometric unlock
+      protect access <em>through the app</em>, not the files themselves.</li>
+  <li>Android system backup (Auto Backup and device-to-device transfer) is
+      <strong>disabled</strong> for this app, so an unencrypted journal never
+      reaches the cloud behind your back.</li>
+  <li>The developer has no access to your entries — none, under any
+      circumstances.</li>
+</ul>
+
+<h2>When data leaves the device</h2>
+<p>Only when you tell it to, in exactly two ways:</p>
+
+<h3>1. Manual export</h3>
+<p>From Settings you can export the archive as plain <code>.json</code> or as
+encrypted <code>.psyenc</code> (AES-GCM-256, key derived from your passphrase
+with Argon2id). The system share sheet hands the file over — where it goes
+(mail, drive, chat) is your choice, and from then on that service's terms
+apply. A plain <code>.json</code> export is not encrypted; handle it with
+care.</p>
+
+<h3>2. Optional automatic backups to Google Drive</h3>
+<p>If you turn this on:</p>
+<ul>
+  <li>You sign in with your own Google account. The app requests only the
+      <code>drive.appdata</code> scope — a hidden, app-owned folder. The app
+      <strong>cannot see</strong> the rest of your Drive.</li>
+  <li>The backup is encrypted <strong>on the device</strong> before upload,
+      with a key derived from your backup passphrase. Google — or anyone else
+      — sees only an unreadable blob.</li>
+  <li>Nobody but you knows that passphrase and it cannot be recovered. Lose
+      it and the backup is permanently unreadable. That is by design.</li>
+  <li>The backup sits in <em>your</em> Google account, not the developer's.
+      Google's handling of it is governed by the
+      <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+</ul>
+<p>The app also checks whether a network connection exists (so it can tell you
+that a backup is waiting for connectivity) and can open an external link in
+your browser. Nothing else is ever transmitted.</p>
+
+<h2>No ads, no tracking, no developer accounts</h2>
+<ul>
+  <li>No advertising SDKs, no analytics SDKs, no crash-reporting SDKs.</li>
+  <li>No advertising identifiers, no profiling, no notifications.</li>
+  <li>No sign-up — the app has no user accounts with the developer.</li>
+  <li>No data shared with third parties. The only third party involved at all
+      is Google, and only if you enable Drive backups yourself.</li>
+  <li>The app currently contains no purchases. If any are added, they will go
+      through Google Play Billing and this policy will be updated.</li>
+</ul>
+
+<h2>How to delete your data</h2>
+<ul>
+  <li><strong>Local data:</strong> Settings → wipe data, or uninstall the app.
+      Uninstalling removes the entire private storage.</li>
+  <li><strong>Drive backup:</strong> the in-app wipe can delete the backup
+      file from your Drive as part of the same action. Alternatively, revoke
+      the app's access in your
+      <a href="https://myaccount.google.com/permissions">Google Account
+      settings</a>.</li>
+  <li><strong>Exports:</strong> files you sent somewhere yourself must be
+      deleted there — the developer has no knowledge of them.</li>
+</ul>
+
+<h2>Children</h2>
+<p>The app is not directed to children and is not targeted at them.</p>
+
+<h2>Your rights (GDPR)</h2>
+<p>The developer processes none of your personal data — it is never received
+and never accessible — and is therefore not a controller of it under the GDPR.
+The data in the app is under your sole control: access, portability and
+erasure are all performed directly in the app (export, wipe). For Drive
+backups, Google acts as the processor and you exercise your rights through
+your Google account.</p>
+
+<h2>Disclaimer</h2>
+<p>Psychodiary is a tool for personal reflection, <strong>not a medical
+device</strong>. It does not diagnose, treat or prevent anything and is no
+substitute for professional care. In a crisis, contact a doctor or your local
+emergency line.</p>
+
+<h2>Changes to this policy</h2>
+<p>If the policy changes, the date above is updated and the new version is
+published at this address before the app release it concerns.</p>
+
+<h2>Contact</h2>
+<p>lubosmisovic@gmail.com</p>
+
+</main>
+</body>
+</html>
