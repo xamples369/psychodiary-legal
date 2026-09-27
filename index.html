@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Psychodiary — Zásady ochrany súkromia / Privacy Policy</title>
 <!--
-  Play Console requires a publicly reachable privacy-policy URL for every
-  app, including ones that collect nothing. Host this single file anywhere
-  static (Cloudflare Pages / Netlify drop / GitHub Pages of a small PUBLIC
-  repo — this repo is private, and Pages on a private repo needs a paid
-  plan) and paste the resulting URL into:
-    Play Console -> App content -> Privacy policy
-    Play Console -> Store listing -> Privacy policy
-  Keep the "Posledná aktualizácia" line in sync with real changes.
+  Play Console requires a publicly reachable privacy-policy URL. This file
+  is live at https://xamples369.github.io/psychodiary-legal/ — GitHub
+  Pages on xamples369/psychodiary-legal, a small public repo dedicated to
+  just this one file (psychodiary itself went private on 2026-08-29;
+  psychodiary-legal stays public on purpose, since Pages on a private
+  repo needs a paid plan).
 
-  Before publishing: replace KONTAKT_EMAIL below with the address you also
-  use as the Play listing contact e-mail.
+  That repo is a manual mirror, not a submodule or CI target: a change
+  here does NOT go live on its own. After editing, copy this file to
+  index.html in a checkout of psychodiary-legal, commit, force-push a
+  fresh single commit to main (same as the first publish), and confirm
+  the page reflects the change before pointing Play Console at it again.
+  Keep the "Posledná aktualizácia" line in sync with real changes.
 -->
 <style>
   :root { color-scheme: light dark; --bg:#f4ede0; --fg:#20211f; --mut:#5c5f5a; --acc:#2e6f6a; --line:#ddd3c2; }
@@ -42,7 +44,7 @@
 
 <p class="lang">Slovensky</p>
 <h1>Psychodiary — zásady ochrany súkromia</h1>
-<p class="meta">Posledná aktualizácia: 25. augusta 2026 · Aplikácia: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
+<p class="meta">Posledná aktualizácia: 27. septembra 2026 · Aplikácia: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
 
 <h2>Zhrnutie</h2>
 <p><strong>Psychodiary nezbiera o tebe žiadne dáta.</strong> Neexistuje žiadny
@@ -70,7 +72,10 @@ namerané hodnoty HRV. Tieto údaje sa ukladajú <strong>lokálne v súkromnom
 </ul>
 
 <h2>Kedy dáta opúšťajú zariadenie</h2>
-<p>Iba na tvoj vlastný pokyn, a to dvoma spôsobmi:</p>
+<p>Obsah, ktorý si napísal do denníka — záznamy, HRV, Kompas — opúšťa
+zariadenie iba na tvoj vlastný pokyn, a to dvoma spôsobmi. (Appka navyše
+sama od seba komunikuje s Googlom kvôli overeniu nákupu; to sa denníka
+netýka — pozri nižšie.)</p>
 
 <h3>1. Manuálny export</h3>
 <p>V Nastaveniach môžeš vyexportovať archív ako obyčajný <code>.json</code>
@@ -97,18 +102,42 @@ opatrne.</p>
       Google</a>.</li>
 </ul>
 <p>Aplikácia okrem toho zisťuje dostupnosť pripojenia (aby ti pri zálohovaní
-povedala, že si offline) a vie otvoriť externý odkaz v prehliadači. Nič iné
-neposiela nikam.</p>
+povedala, že si offline) a vie otvoriť externý odkaz v prehliadači.</p>
+
+<h2>Nákup a overenie cez Google Play Billing</h2>
+<p>Aplikácia ponúka jeden jednorazový nákup — odomknutie automatických záloh
+do Google Drive. Samotnú platbu spracúva výhradne Google podľa vlastných
+podmienok a zásad ochrany súkromia. Aplikácia si po nákupe uloží len
+informáciu, že máš funkciu odomknutú — lokálne, v šifrovanom systémovom
+úložisku zariadenia (Android Keystore), nie v rovnakom súbore ako denník
+— a <strong>pri každom spustení</strong> si u Googlu overí, že nákup
+naďalej platí. Toto overenie prebieha bez ohľadu na to, či máš zapnuté
+automatické zálohy a či si vôbec niekedy platil, a týka sa každej
+inštalácie vrátane tých, čo funkciu majú zadarmo (skorí používatelia,
+testovacie obdobie).</p>
+<p>Autor aplikácie nevidí čísla platobných kariet ani iné platobné údaje o
+tebe priamo — tie spracúva výhradne Google. Ako predávajúci má autor cez
+Google Play Console prístup k bežným záznamom o objednávke (dátum, suma,
+produkt, prípadne orientačná poloha kupujúceho podľa Googlu) — rovnako
+ako pri akomkoľvek nákupe cez Google Play, nie niečo, čo si vyžiadala
+alebo zbiera táto konkrétna appka.</p>
+<p>Samotná knižnica Google Play Billing (súčasť appky, nie kód od jej
+autora) navyše posiela Googlu svoje vlastné prevádzkové telemetrické dáta
+o svojom fungovaní — to je súčasť toho, ako táto knižnica funguje, deje sa
+to automaticky pri jej použití a appka do toho nevidí ani to neriadi.
+Mimo tohto, overenia nákupu a voliteľných záloh do Drive appka sama
+neiniciuje žiadnu ďalšiu sieťovú komunikáciu.</p>
 
 <h2>Žiadne reklamy, žiadne sledovanie, žiadne účty u autora</h2>
 <ul>
   <li>Žiadne reklamné SDK, žiadne analytické SDK, žiadne crash reporting SDK.</li>
   <li>Žiadne reklamné identifikátory, žiadne profilovanie, žiadne notifikácie.</li>
   <li>Žiadna registrácia — aplikácia nemá používateľské účty u autora.</li>
-  <li>Žiadne zdieľanie údajov s tretími stranami. Jediná tretia strana v
-      celom systéme je Google, a to len ak si sám zapneš zálohy do Drive.</li>
-  <li>Aplikácia dnes neobsahuje platby. Ak niekedy pribudnú, pôjdu cez
-      Google Play Billing a tieto zásady sa aktualizujú.</li>
+  <li>Žiadne zdieľanie údajov s tretími stranami. Jedinou treťou stranou v
+      celom systéme je Google — cez Google Play Billing pri nákupe a jeho
+      overovaní (vyššie), a cez Google Drive vždy, keď sám použiješ nejakú
+      funkciu, ktorá s Drive pracuje (zapneš automatické zálohy, obnovíš
+      z Drive, alebo si u Googlu overíš prístup).</li>
 </ul>
 
 <h2>Ako údaje zmažeš</h2>
@@ -122,6 +151,10 @@ neposiela nikam.</p>
       Google účtu</a>.</li>
   <li><strong>Exporty:</strong> súbory, ktoré si sám niekam poslal, musíš
       zmazať tam, kam si ich poslal — autor o nich nevie.</li>
+  <li><strong>Záznam o nákupe:</strong> zostáva u Googlu ako pri
+      ktoromkoľvek nákupe na Google Play; appka ho sama nezmaže. Vymazanie
+      dát v appke sa Googlu opýta znova, či nákup platí, a stav si znovu
+      nastaví podľa jeho odpovede.</li>
 </ul>
 
 <h2>Deti</h2>
@@ -133,7 +166,9 @@ prístup, takže nie je ich prevádzkovateľom v zmysle GDPR. Údaje v aplikáci
 pod tvojou výhradnou kontrolou; prístup k nim, ich prenos aj vymazanie
 uskutočníš priamo v aplikácii (export, resp. zmazanie dát). Pri zálohách do
 Drive vystupuje ako spracovateľ Google, voči ktorému si svoje práva uplatňuješ
-cez svoj Google účet.</p>
+cez svoj Google účet; pri nákupe cez Google Play Billing je Google
+prevádzkovateľom platobných údajov vo vlastnom mene, nie v mene autora
+aplikácie.</p>
 
 <h2>Upozornenie</h2>
 <p>Psychodiary je nástroj na osobnú reflexiu, <strong>nie zdravotnícka
@@ -152,7 +187,7 @@ tejto adrese ešte pred vydaním verzie aplikácie, ktorej sa zmena týka.</p>
 
 <p class="lang">English</p>
 <h1>Psychodiary — Privacy Policy</h1>
-<p class="meta">Last updated: 25 August 2026 · App: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
+<p class="meta">Last updated: 27 September 2026 · App: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
 
 <h2>Summary</h2>
 <p><strong>Psychodiary collects no data about you.</strong> There is no
@@ -179,7 +214,10 @@ on your device, as JSON files.</p>
 </ul>
 
 <h2>When data leaves the device</h2>
-<p>Only when you tell it to, in exactly two ways:</p>
+<p>What you write in the journal — entries, HRV, Compass — leaves the
+device only when you tell it to, in exactly two ways. (The app also
+talks to Google on its own to verify the purchase; that has nothing to
+do with your journal — see below.)</p>
 
 <h3>1. Manual export</h3>
 <p>From Settings you can export the archive as plain <code>.json</code> or as
@@ -206,17 +244,43 @@ care.</p>
 </ul>
 <p>The app also checks whether a network connection exists (so it can tell you
 that a backup is waiting for connectivity) and can open an external link in
-your browser. Nothing else is ever transmitted.</p>
+your browser.</p>
+
+<h2>Purchase and verification via Google Play Billing</h2>
+<p>The app offers one one-time purchase — unlocking automatic backups to
+Google Drive. The payment itself is handled entirely by Google, under its
+own terms and privacy policy. The app stores only the fact that the
+feature is unlocked — locally, in the device's encrypted system storage
+(the Android Keystore), not the same file as your journal — and
+<strong>checks with Google at every launch</strong> that the purchase
+still stands. This check runs regardless of whether you have automatic
+backups turned on or have ever paid at all, and for every install,
+including ones where the feature is free (early adopters, a testing
+period).</p>
+<p>The developer does not directly see your card numbers or other payment
+details — Google handles those. As the seller, the developer does have
+the usual order records through Google Play Console (date, amount,
+product, and the buyer's approximate location as reported by Google) —
+the same as for any Google Play purchase, not something this specific
+app requests or collects on its own.</p>
+<p>The Google Play Billing library itself (part of the app, not code its
+developer wrote) also sends its own operational telemetry to Google about
+how the library is functioning — this is inherent to how the library
+works, happens automatically just by using it, and the app has no
+visibility into or control over it. Other than this, the purchase check,
+and optional Drive backups, the app does not initiate any other network
+activity.</p>
 
 <h2>No ads, no tracking, no developer accounts</h2>
 <ul>
   <li>No advertising SDKs, no analytics SDKs, no crash-reporting SDKs.</li>
   <li>No advertising identifiers, no profiling, no notifications.</li>
   <li>No sign-up — the app has no user accounts with the developer.</li>
-  <li>No data shared with third parties. The only third party involved at all
-      is Google, and only if you enable Drive backups yourself.</li>
-  <li>The app currently contains no purchases. If any are added, they will go
-      through Google Play Billing and this policy will be updated.</li>
+  <li>No data shared with third parties. The only third party involved at
+      all is Google — through Google Play Billing for the purchase and its
+      verification (above), and through Google Drive whenever you
+      yourself use a Drive-related feature (turning on automatic backups,
+      restoring from Drive, or verifying access there).</li>
 </ul>
 
 <h2>How to delete your data</h2>
@@ -230,6 +294,10 @@ your browser. Nothing else is ever transmitted.</p>
       settings</a>.</li>
   <li><strong>Exports:</strong> files you sent somewhere yourself must be
       deleted there — the developer has no knowledge of them.</li>
+  <li><strong>Purchase record:</strong> stays with Google, as with any
+      Google Play purchase; the app itself does not delete it. Wiping data
+      in the app asks Google again whether the purchase still stands and
+      resets its own state from that answer.</li>
 </ul>
 
 <h2>Children</h2>
@@ -241,7 +309,9 @@ and never accessible — and is therefore not a controller of it under the GDPR.
 The data in the app is under your sole control: access, portability and
 erasure are all performed directly in the app (export, wipe). For Drive
 backups, Google acts as the processor and you exercise your rights through
-your Google account.</p>
+your Google account; for the Google Play Billing purchase, Google is the
+controller of the payment data in its own right, not on the developer's
+behalf.</p>
 
 <h2>Disclaimer</h2>
 <p>Psychodiary is a tool for personal reflection, <strong>not a medical
