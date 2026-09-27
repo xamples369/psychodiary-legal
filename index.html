@@ -116,10 +116,11 @@ automatické zálohy a či si vôbec niekedy platil, a týka sa každej
 inštalácie vrátane tých, čo funkciu majú zadarmo (skorí používatelia,
 testovacie obdobie).</p>
 <p>Autor aplikácie nevidí čísla platobných kariet ani iné platobné údaje o
-tebe priamo — tie spracúva výhradne Google. Ako predávajúci má autor cez
-Google Play Console prístup k bežným záznamom o objednávke (dátum, suma,
-produkt, prípadne orientačná poloha kupujúceho podľa Googlu) — rovnako
-ako pri akomkoľvek nákupe cez Google Play, nie niečo, čo si vyžiadala
+tebe priamo — tie spracúva a uchováva výhradne Google. Appka sama sa
+Googlu pýta len na to, či je nákup platný (áno/nie); nič viac o tebe ako
+kupujúcom appka nezískava ani neuchováva. To, čo prípadne o transakcii
+vidí autor ako predávajúci v Google Play Console, určuje výhradne Google
+podľa vlastných pravidiel pre vývojárov — nie je to niečo, čo si vyžiadala
 alebo zbiera táto konkrétna appka.</p>
 <p>Samotná knižnica Google Play Billing (súčasť appky, nie kód od jej
 autora) navyše posiela Googlu svoje vlastné prevádzkové telemetrické dáta
@@ -258,11 +259,12 @@ backups turned on or have ever paid at all, and for every install,
 including ones where the feature is free (early adopters, a testing
 period).</p>
 <p>The developer does not directly see your card numbers or other payment
-details — Google handles those. As the seller, the developer does have
-the usual order records through Google Play Console (date, amount,
-product, and the buyer's approximate location as reported by Google) —
-the same as for any Google Play purchase, not something this specific
-app requests or collects on its own.</p>
+details — Google handles and stores those. The app itself only asks
+Google whether the purchase is still valid (yes/no); it does not obtain
+or store anything else about you as a buyer. Whatever the developer may
+see about a transaction as the seller in Google Play Console is
+determined entirely by Google, under its own rules for developers — not
+something this specific app requests or collects on its own.</p>
 <p>The Google Play Billing library itself (part of the app, not code its
 developer wrote) also sends its own operational telemetry to Google about
 how the library is functioning — this is inherent to how the library
