@@ -44,7 +44,7 @@
 
 <p class="lang">Slovensky</p>
 <h1>Psychodiary — zásady ochrany súkromia</h1>
-<p class="meta">Posledná aktualizácia: 27. septembra 2026 · Aplikácia: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
+<p class="meta">Posledná aktualizácia: 27. októbra 2026 · Aplikácia: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
 
 <h2>Zhrnutie</h2>
 <p><strong>Psychodiary nezbiera o tebe žiadne dáta.</strong> Neexistuje žiadny
@@ -54,8 +54,10 @@ tvojom zariadení, kým sa ty sám nerozhodneš inak.</p>
 
 <h2>Aké údaje aplikácia spracúva a kde sú uložené</h2>
 <p>Do aplikácie zadávaš obsah, ktorý môže byť veľmi osobný — záznamy denníka,
-nálada, spánok, tréning, poznámky, postoje a varovné signály (Kompas) a
-namerané hodnoty HRV. Tieto údaje sa ukladajú <strong>lokálne v súkromnom
+nálada, spánok, tréning, poznámky, postoje a varovné signály (Kompas),
+namerané hodnoty HRV, vlastné merania (napríklad krvný tlak) a návyky —
+epizódy a počítadlá „dni bez" (napríklad alkohol či iné látky) aj s dňami,
+keď si sa k nim vrátil. Tieto údaje sa ukladajú <strong>lokálne v súkromnom
 úložisku aplikácie</strong> na tvojom zariadení, vo formáte JSON.</p>
 <ul>
   <li>K tomuto úložisku nemá prístup iná aplikácia — chráni ho sandbox
@@ -72,18 +74,19 @@ namerané hodnoty HRV. Tieto údaje sa ukladajú <strong>lokálne v súkromnom
 </ul>
 
 <h2>Kedy dáta opúšťajú zariadenie</h2>
-<p>Obsah, ktorý si napísal do denníka — záznamy, HRV, Kompas — opúšťa
-zariadenie iba na tvoj vlastný pokyn, a to dvoma spôsobmi. (Appka navyše
+<p>Obsah, ktorý si napísal do denníka, opúšťa zariadenie iba na tvoj
+vlastný pokyn, a to dvoma spôsobmi. (Appka navyše
 sama od seba komunikuje s Googlom kvôli overeniu nákupu; to sa denníka
 netýka — pozri nižšie.)</p>
 
 <h3>1. Manuálny export</h3>
 <p>V Nastaveniach môžeš vyexportovať archív ako obyčajný <code>.json</code>
 alebo ako šifrovaný <code>.psyenc</code> (AES-GCM-256, kľúč odvodený z tvojej
-frázy cez Argon2id). Súbor odovzdá systémový „share" dialóg — kam poputuje
+frázy cez Argon2id), alebo záznamy ako čitateľný text (Markdown,
+<code>.md</code>). Súbor odovzdá systémový „share" dialóg — kam poputuje
 (e-mail, disk, chat) si vyberáš ty a odvtedy podlieha podmienkam danej služby.
-Obyčajný <code>.json</code> export nie je šifrovaný; zaobchádzaj s ním
-opatrne.</p>
+Obyčajný <code>.json</code> ani čitateľný <code>.md</code> export nie je
+šifrovaný; zaobchádzaj s nimi opatrne.</p>
 
 <h3>2. Voliteľné automatické zálohy do Google Drive</h3>
 <p>Ak si túto funkciu zapneš:</p>
@@ -146,10 +149,10 @@ neiniciuje žiadnu ďalšiu sieťovú komunikáciu.</p>
   <li><strong>Lokálne dáta:</strong> Nastavenia → zmazanie dát, alebo
       odinštalovanie aplikácie. Odinštalovaním zmizne celé súkromné úložisko.</li>
   <li><strong>Zálohu v Drive:</strong> pri zmazaní dát v aplikácii môžeš
-      nechať zmazať aj súbor zálohy vo svojom Drive. Alternatívne odpojíš
-      aplikácii prístup v
-      <a href="https://myaccount.google.com/permissions">nastaveniach svojho
-      Google účtu</a>.</li>
+      nechať zmazať aj súbor zálohy vo svojom Drive. Inak ju zmažeš priamo
+      v Google Drive: Nastavenia → Spravovať aplikácie → Psychodiary →
+      Možnosti → Odstrániť skryté údaje aplikácie. (Samotné odobratie
+      prístupu v nastaveniach Google účtu zálohu nezmaže.)</li>
   <li><strong>Exporty:</strong> súbory, ktoré si sám niekam poslal, musíš
       zmazať tam, kam si ich poslal — autor o nich nevie.</li>
   <li><strong>Záznam o nákupe:</strong> zostáva u Googlu ako pri
@@ -188,7 +191,7 @@ tejto adrese ešte pred vydaním verzie aplikácie, ktorej sa zmena týka.</p>
 
 <p class="lang">English</p>
 <h1>Psychodiary — Privacy Policy</h1>
-<p class="meta">Last updated: 27 September 2026 · App: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
+<p class="meta">Last updated: 27 October 2026 · App: Psychodiary (<code>sk.xamples369.psychodiary</code>)</p>
 
 <h2>Summary</h2>
 <p><strong>Psychodiary collects no data about you.</strong> There is no
@@ -198,8 +201,10 @@ stays on your device unless you yourself decide otherwise.</p>
 
 <h2>What the app processes, and where it is stored</h2>
 <p>You enter content that can be deeply personal — journal entries, mood,
-sleep, training, notes, attitudes and warning signals (Compass), and HRV
-readings. This is stored <strong>locally, in the app's private storage</strong>
+sleep, training, notes, attitudes and warning signals (Compass), HRV
+readings, your own measurements (blood pressure, say) and habits —
+episodes and "days without" counters (alcohol or other substances, say),
+including the days you went back to them. This is stored <strong>locally, in the app's private storage</strong>
 on your device, as JSON files.</p>
 <ul>
   <li>No other app can reach that storage — the Android sandbox protects it.</li>
@@ -215,18 +220,19 @@ on your device, as JSON files.</p>
 </ul>
 
 <h2>When data leaves the device</h2>
-<p>What you write in the journal — entries, HRV, Compass — leaves the
-device only when you tell it to, in exactly two ways. (The app also
+<p>What you write in the journal leaves the device only when you tell it
+to, in exactly two ways. (The app also
 talks to Google on its own to verify the purchase; that has nothing to
 do with your journal — see below.)</p>
 
 <h3>1. Manual export</h3>
 <p>From Settings you can export the archive as plain <code>.json</code> or as
 encrypted <code>.psyenc</code> (AES-GCM-256, key derived from your passphrase
-with Argon2id). The system share sheet hands the file over — where it goes
-(mail, drive, chat) is your choice, and from then on that service's terms
-apply. A plain <code>.json</code> export is not encrypted; handle it with
-care.</p>
+with Argon2id), or your entries as readable text (Markdown,
+<code>.md</code>). The system share sheet hands the file over — where it
+goes (mail, drive, chat) is your choice, and from then on that service's
+terms apply. Neither a plain <code>.json</code> nor a readable
+<code>.md</code> export is encrypted; handle them with care.</p>
 
 <h3>2. Optional automatic backups to Google Drive</h3>
 <p>If you turn this on:</p>
@@ -290,10 +296,10 @@ activity.</p>
   <li><strong>Local data:</strong> Settings → wipe data, or uninstall the app.
       Uninstalling removes the entire private storage.</li>
   <li><strong>Drive backup:</strong> the in-app wipe can delete the backup
-      file from your Drive as part of the same action. Alternatively, revoke
-      the app's access in your
-      <a href="https://myaccount.google.com/permissions">Google Account
-      settings</a>.</li>
+      file from your Drive as part of the same action. Otherwise delete it in
+      Google Drive itself: Settings → Manage apps → Psychodiary → Options →
+      Delete hidden app data. (Removing the app's access in your Google
+      Account settings alone does not delete the backup.)</li>
   <li><strong>Exports:</strong> files you sent somewhere yourself must be
       deleted there — the developer has no knowledge of them.</li>
   <li><strong>Purchase record:</strong> stays with Google, as with any
